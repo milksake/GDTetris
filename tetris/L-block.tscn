@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://vplvb0elq73a"]
+
+[ext_resource type="Script" path="res://tetris/block.gd" id="1_35om1"]
+[ext_resource type="Texture2D" uid="uid://xsnmfcxqdvxn" path="res://tetris/block.png" id="2_5mvci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8j3c"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_had7b"]
+size = Vector2(32, 32)
+
+[node name="I-block" type="CharacterBody2D"]
+script = ExtResource("1_35om1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-32, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_5mvci")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_5mvci")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-32, 32)
+scale = Vector2(4, 4)
+texture = ExtResource("2_5mvci")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_5mvci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o8j3c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-32, 32)
+shape = SubResource("RectangleShape2D_had7b")
