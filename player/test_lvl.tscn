@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4ehlrqnjh3y7"]
+
+[ext_resource type="Texture2D" uid="uid://dw6j24aek0dux" path="res://icon.svg" id="1_1s1or"]
+[ext_resource type="Script" path="res://tetris/test.gd" id="1_rcv1x"]
+[ext_resource type="PackedScene" uid="uid://kclin2h3lv5y" path="res://player/player.tscn" id="2_8pyw2"]
+[ext_resource type="PackedScene" uid="uid://bmeo8ry5tlbm7" path="res://tetris/I-block.tscn" id="2_66s3l"]
+[ext_resource type="PackedScene" uid="uid://cr6codu3tcmuc" path="res://tetris/J-block.tscn" id="3_n8yt8"]
+[ext_resource type="PackedScene" uid="uid://vplvb0elq73a" path="res://tetris/L-block.tscn" id="4_lskqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ics1"]
+size = Vector2(128, 126)
+
+[node name="TestLvl" type="Node2D"]
+script = ExtResource("1_rcv1x")
+IBlock = ExtResource("2_66s3l")
+JBlock = ExtResource("3_n8yt8")
+LBlock = ExtResource("4_lskqs")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(564, 623)
+scale = Vector2(8, 1)
+collision_layer = 5
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("RectangleShape2D_8ics1")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+texture = ExtResource("1_1s1or")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(58, 175)
+scale = Vector2(1, 8)
+collision_layer = 5
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_8ics1")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("1_1s1or")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1101, 187)
+scale = Vector2(1, 8)
+collision_layer = 5
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_8ics1")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("1_1s1or")
+
+[node name="Player" parent="." instance=ExtResource("2_8pyw2")]
+position = Vector2(374, 250)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
