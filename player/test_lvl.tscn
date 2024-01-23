@@ -57,6 +57,7 @@ texture = ExtResource("1_1s1or")
 
 [node name="Player" parent="." instance=ExtResource("2_8pyw2")]
 position = Vector2(374, 250)
+active = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0

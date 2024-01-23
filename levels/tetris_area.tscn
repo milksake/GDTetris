@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6fn2s8g3xv4a"]
+
+[ext_resource type="Script" path="res://levels/tetris_area.gd" id="1_24ugg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbjl3"]
+size = Vector2(663, 617)
+
+[sub_resource type="Gradient" id="Gradient_v4bxv"]
+colors = PackedColorArray(0.497474, 0.497474, 0.497474, 1, 0.502719, 0.502719, 0.502719, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nexdy"]
+gradient = SubResource("Gradient_v4bxv")
+
+[node name="TetrisArea" type="Area2D"]
+script = ExtResource("1_24ugg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fbjl3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1.50002)
+scale = Vector2(10.375, 9.57813)
+texture = SubResource("GradientTexture2D_nexdy")

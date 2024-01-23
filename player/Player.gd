@@ -8,9 +8,17 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var angular_velocity : float = 180.0 / (jump_velocity / gravity * -2.0)
 var modify_rotation := true
 
+@export var active := false
+
 @onready var sprite = $Sprite2D as Sprite2D
 
+signal died
+
 func _physics_process(delta: float) -> void:
+	if not active:
+		sprite.rotation_degrees += angular_velocity * delta
+		return
+	
 	if is_on_floor():
 		if modify_rotation and not Input.is_action_pressed("ui_accept"):
 			#var cast = sprite.rotation_degrees as int
@@ -38,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		if change_dir:
 			direction *= -1
 		else:
-			print("dead")
+			died.emit()
 	velocity.x = direction * horizontal_speed
 
 	move_and_slide()
