@@ -12,12 +12,18 @@ func _ready():
 	add_to_group("tetris")
 	screen_size = get_viewport_rect().size
 	position.x = screen_size.x / 2
-	$collision.scale = Vector2(.9, .9)
+	set_collision_scale(0.9)
+
+func set_collision_scale(ratio: float):
+	if has_node("coll1"):
+		$coll1.scale = Vector2(ratio, ratio)
+	if has_node("coll2"):
+		$coll2.scale = Vector2(ratio, ratio)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(dt: float):
 	if active:
-		var mov := Vector2i(0, 0)
+		var mov := Vector2(0, 0)
 		if Input.is_action_pressed("block_move_left"):
 			remainder.x -= MAX_VEL_Y * dt
 		
@@ -35,7 +41,7 @@ func _process(dt: float):
 		if not move_and_collide(mov, true):
 			move_and_collide(mov)
 		
-		mov = Vector2i(0, 0)
+		mov = Vector2(0, 0)
 		if Input.is_action_pressed("block_down"):
 			remainder.y += MAX_VEL_Y * dt
 		else:
@@ -49,9 +55,9 @@ func _process(dt: float):
 			move_and_collide(mov)
 		else:
 			active = false
-			$collision.scale = Vector2(1, 1)
+			set_collision_scale(1)
 		
-		mov = Vector2i(0, 0)
+		mov = Vector2(0, 0)
 		if Input.is_action_just_pressed("block_rotate"):
 			rotation += PI / 2.0
 			if move_and_collide(mov, true):

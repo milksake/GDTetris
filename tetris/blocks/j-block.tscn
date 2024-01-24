@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr6codu3tcmuc"]
+
+[ext_resource type="Script" path="res://tetris/block.gd" id="1_8c06x"]
+[ext_resource type="Texture2D" uid="uid://dwben5t64fyey" path="res://tetris/img/J.png" id="2_415jv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq854"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbts3"]
+size = Vector2(64, 32)
+
+[node name="J-block" type="StaticBody2D"]
+script = ExtResource("1_8c06x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_415jv")
+
+[node name="coll1" type="CollisionShape2D" parent="."]
+position = Vector2(-32, -16)
+shape = SubResource("RectangleShape2D_dq854")
+
+[node name="coll2" type="CollisionShape2D" parent="."]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_vbts3")

@@ -1,18 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgpl7f3c3qw8y"]
+[gd_scene load_steps=10 format=3 uid="uid://bgpl7f3c3qw8y"]
 
 [ext_resource type="Script" path="res://tetris/test.gd" id="1_88gi0"]
-[ext_resource type="PackedScene" uid="uid://bmeo8ry5tlbm7" path="res://tetris/I-block.tscn" id="2_jd60k"]
-[ext_resource type="PackedScene" uid="uid://cr6codu3tcmuc" path="res://tetris/J-block.tscn" id="3_g5pfx"]
-[ext_resource type="PackedScene" uid="uid://vplvb0elq73a" path="res://tetris/L-block.tscn" id="4_ibuwb"]
+[ext_resource type="PackedScene" uid="uid://bmeo8ry5tlbm7" path="res://tetris/blocks/i-block.tscn" id="2_jd60k"]
+[ext_resource type="PackedScene" uid="uid://cr6codu3tcmuc" path="res://tetris/blocks/j-block.tscn" id="3_g5pfx"]
+[ext_resource type="PackedScene" uid="uid://vplvb0elq73a" path="res://tetris/blocks/l-block.tscn" id="4_ibuwb"]
+[ext_resource type="PackedScene" uid="uid://dww22dnd2yi00" path="res://tetris/blocks/o_block.tscn" id="5_vwujr"]
+[ext_resource type="PackedScene" uid="uid://c3c5xcm4gm7dh" path="res://tetris/blocks/s-block.tscn" id="6_61vu5"]
+[ext_resource type="PackedScene" uid="uid://bgotf6wb08ssk" path="res://tetris/blocks/t-block.tscn" id="7_e8qr6"]
+[ext_resource type="PackedScene" uid="uid://b4d1mm30dob7y" path="res://tetris/blocks/z-block.tscn" id="8_yi747"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_haxhd"]
-size = Vector2(1153, 42)
+size = Vector2(1153, 64)
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_88gi0")
 IBlock = ExtResource("2_jd60k")
 JBlock = ExtResource("3_g5pfx")
 LBlock = ExtResource("4_ibuwb")
+OBlock = ExtResource("5_vwujr")
+SBlock = ExtResource("6_61vu5")
+TBlock = ExtResource("7_e8qr6")
+ZBlock = ExtResource("8_yi747")
 
 [node name="floor" type="StaticBody2D" parent="."]
 

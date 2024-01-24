@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dww22dnd2yi00"]
+
+[ext_resource type="Script" path="res://tetris/block.gd" id="1_51vgt"]
+[ext_resource type="Texture2D" uid="uid://cn2r63pvx1biv" path="res://tetris/img/O.png" id="1_jwvfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy8n7"]
+size = Vector2(128, 128)
+
+[node name="O-block" type="StaticBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_51vgt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, -32)
+texture = ExtResource("1_jwvfm")
+
+[node name="coll1" type="CollisionShape2D" parent="."]
+position = Vector2(32, -32)
+shape = SubResource("RectangleShape2D_cy8n7")

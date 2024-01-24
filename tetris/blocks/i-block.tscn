@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmeo8ry5tlbm7"]
+
+[ext_resource type="Script" path="res://tetris/block.gd" id="1_l2qb1"]
+[ext_resource type="Texture2D" uid="uid://d1tjsa1xmmn6a" path="res://tetris/img/I.png" id="2_5f1xv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8j3c"]
+size = Vector2(32, 128)
+
+[node name="I-block" type="StaticBody2D"]
+script = ExtResource("1_l2qb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5f1xv")
+
+[node name="coll1" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_o8j3c")
