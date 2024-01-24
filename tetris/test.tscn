@@ -19,6 +19,3 @@ LBlock = ExtResource("4_ibuwb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(576, 672)
 shape = SubResource("RectangleShape2D_haxhd")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0

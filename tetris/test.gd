@@ -11,14 +11,13 @@ func _ready():
 	BlockTypes = [IBlock, JBlock, LBlock]
 	$floor.add_to_group("tetris")
 	create_block()
-	$Timer.connect("timeout", create_block)
-	$Timer.start()
 
 func create_block():
-	var new_block: CharacterBody2D = BlockTypes[randi_range(0, len(BlockTypes)-1)].instantiate()
+	var new_block: StaticBody2D = BlockTypes[randi_range(0, len(BlockTypes)-1)].instantiate()
 	add_child(new_block)
 	blocks.append(new_block)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if not blocks.back().active:
+		create_block()
